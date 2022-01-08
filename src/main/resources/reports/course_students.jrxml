@@ -1,0 +1,58 @@
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="Students in course report" pageWidth="595" pageHeight="842" columnWidth="535"
+              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <parameter name="title" class="java.lang.String"/>
+    <parameter name="mnemonic" class="java.lang.String"/>
+    <queryString language="SQL">
+        <![CDATA[SELECT C.MNEMONIC, C.DESCRIPTION, CONCAT(S.FIRST_NAME, ' ', S.LAST_NAME) STUDENT_NAME, S.EMAIL FROM STUDENT S INNER JOIN STUDENT_COURSE SC ON S.ID = SC.STUDENT_ID INNER JOIN COURSE C ON SC.COURSE_ID = C.ID WHERE C.MNEMONIC = $P{mnemonic}]]>
+    </queryString>
+
+    <field name="MNEMONIC" class="java.lang.String"/>
+    <field name="DESCRIPTION" class="java.lang.String"/>
+    <field name="STUDENT_NAME" class="java.lang.String"/>
+    <field name="EMAIL" class="java.lang.String"/>
+
+    <title>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement x="218" y="0" width="200" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$P{title}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <detail>
+        <band height="51" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$F{MNEMONIC}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="150" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="150" y="0" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$F{STUDENT_NAME}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="280" y="0" width="150" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$F{EMAIL}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>
+
