@@ -8,13 +8,13 @@
     <parameter name="title" class="java.lang.String"/>
     <parameter name="student_id" class="java.lang.Long"/>
     <queryString language="SQL">
-        <![CDATA[SELECT S.ID STUDENT_ID, CONCAT(S.FIRST_NAME, ' ', S.LAST_NAME) FULL_NAME, C.DESCRIPTION, C.MNEMONIC FROM STUDENT S INNER JOIN STUDENT_COURSE SC ON S.ID = SC.STUDENT_ID INNER JOIN COURSE C ON SC.COURSE_ID = C.ID WHERE S.ID = $P{student_id}]]>
+        <![CDATA[SELECT S.ID student_id, CONCAT(S.first_name, ' ', S.last_name) full_name, C.description, C.mnemonic FROM student S INNER JOIN student_course SC ON S.id = SC.student_id INNER JOIN course C ON SC.course_id = C.id WHERE S.id = $P{student_id}]]>
     </queryString>
 
-    <field name="STUDENT_ID" class="java.lang.Long"/>
-    <field name="FULL_NAME" class="java.lang.String"/>
-    <field name="DESCRIPTION" class="java.lang.String"/>
-    <field name="MNEMONIC" class="java.lang.String"/>
+    <field name="student_id" class="java.lang.Long"/>
+    <field name="full_name" class="java.lang.String"/>
+    <field name="description" class="java.lang.String"/>
+    <field name="mnemonic" class="java.lang.String"/>
 
     <title>
         <band height="20" splitType="Stretch">
@@ -32,19 +32,19 @@
                 <reportElement x="0" y="0" width="100" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{FULL_NAME}]]></textFieldExpression>
+                    <![CDATA[$F{full_name}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="100" y="0" width="100" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{MNEMONIC}]]></textFieldExpression>
+                    <![CDATA[$F{mnemonic}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="200" y="0" width="150" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+                    <![CDATA[$F{description}]]></textFieldExpression>
             </textField>
         </band>
     </detail>

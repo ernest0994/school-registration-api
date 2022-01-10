@@ -50,8 +50,7 @@ public class ReportServiceImpl implements ReportService {
         else throw new BadRequestException("incorrect format. please specify if PDF, XLS, CSV or HTML");
     }
 
-    @Override
-    public void exportReportPDF(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException {
+    private void exportReportPDF(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException {
         response.setHeader("Content-Disposition", "attachment;filename=" + reportName + ".pdf");
         response.setContentType("application/octet-stream");
 
@@ -75,7 +74,7 @@ public class ReportServiceImpl implements ReportService {
         exporter.exportReport();
     }
 
-    public void exportReportXLS(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException {
+    private void exportReportXLS(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException {
         response.setHeader("Content-Disposition", "attachment;filename=" + reportName + ".xlsx");
         response.setContentType("application/octet-stream");
 
@@ -88,7 +87,7 @@ public class ReportServiceImpl implements ReportService {
         exporter.exportReport();
     }
 
-    public void exportReportCSV(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException {
+    private void exportReportCSV(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException {
         response.setHeader("Content-Disposition", "attachment;filename=" + reportName + ".csv");
         response.setContentType("application/octet-stream");
 
@@ -98,7 +97,7 @@ public class ReportServiceImpl implements ReportService {
         exporter.exportReport();
     }
 
-    public void exportReportHTML(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException {
+    private void exportReportHTML(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException {
         response.setHeader("Content-Disposition", "attachment;filename=" + reportName + ".html");
         response.setContentType("application/octet-stream");
 

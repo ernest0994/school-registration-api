@@ -18,8 +18,4 @@ import java.util.Map;
 public interface ReportService {
 
     void generateReport(String report, String format, Map<String, Object> parameters, HttpServletResponse response) throws JRException, IOException, SQLException, BadRequestException;
-    void exportReportPDF(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException;
-    void exportReportXLS(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException;
-    void exportReportCSV(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException;
-    void exportReportHTML(JasperPrint jasperPrint, HttpServletResponse response, String reportName) throws JRException, IOException;
 }

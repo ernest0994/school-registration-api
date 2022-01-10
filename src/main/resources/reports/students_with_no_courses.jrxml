@@ -7,11 +7,11 @@
 
     <parameter name="title" class="java.lang.String"/>
     <queryString language="SQL">
-        <![CDATA[SELECT CONCAT(S.FIRST_NAME, ' ', S.LAST_NAME) FULL_NAME, S.EMAIL FROM STUDENT S WHERE S.ID NOT IN (SELECT SC.STUDENT_ID FROM STUDENT_COURSE SC)]]>
+        <![CDATA[SELECT CONCAT(S.first_name, ' ', S.last_name) full_name, S.email FROM student S WHERE S.id NOT IN (SELECT SC.student_id FROM student_course SC)]]>
     </queryString>
 
-    <field name="FULL_NAME" class="java.lang.String"/>
-    <field name="EMAIL" class="java.lang.String"/>
+    <field name="full_name" class="java.lang.String"/>
+    <field name="email" class="java.lang.String"/>
 
     <title>
         <band height="20" splitType="Stretch">
@@ -29,13 +29,13 @@
                 <reportElement x="0" y="0" width="100" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{FULL_NAME}]]></textFieldExpression>
+                    <![CDATA[$F{full_name}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="100" y="0" width="100" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{EMAIL}]]></textFieldExpression>
+                    <![CDATA[$F{email}]]></textFieldExpression>
             </textField>
         </band>
     </detail>

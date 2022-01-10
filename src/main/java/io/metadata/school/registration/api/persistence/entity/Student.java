@@ -3,6 +3,7 @@ package io.metadata.school.registration.api.persistence.entity;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,6 +19,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table
+@EntityListeners(AuditingEntityListener.class)
 public class Student {
 
     @Id
@@ -39,6 +41,15 @@ public class Student {
 
     @LastModifiedDate
     private LocalDateTime lastModifiedAt;
+
+    public Student() {
+    }
+
+    public Student(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 
     @Override
     public String toString() {

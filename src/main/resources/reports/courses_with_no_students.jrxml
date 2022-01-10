@@ -7,12 +7,12 @@
 
     <parameter name="title" class="java.lang.String"/>
     <queryString language="SQL">
-        <![CDATA[SELECT C.* FROM COURSE C WHERE C.ID NOT IN (SELECT SC.COURSE_ID FROM STUDENT_COURSE SC)]]>
+        <![CDATA[SELECT C.* FROM course C WHERE C.id NOT IN (SELECT SC.course_id FROM student_course SC)]]>
     </queryString>
 
-    <field name="ID" class="java.lang.Long"/>
-    <field name="DESCRIPTION" class="java.lang.String"/>
-    <field name="MNEMONIC" class="java.lang.String"/>
+    <field name="id" class="java.lang.Long"/>
+    <field name="description" class="java.lang.String"/>
+    <field name="mnemonic" class="java.lang.String"/>
 
     <title>
         <band height="20" splitType="Stretch">
@@ -30,13 +30,13 @@
                 <reportElement x="0" y="0" width="100" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+                    <![CDATA[$F{description}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="100" y="0" width="100" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{MNEMONIC}]]></textFieldExpression>
+                    <![CDATA[$F{mnemonic}]]></textFieldExpression>
             </textField>
         </band>
     </detail>

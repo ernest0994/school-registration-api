@@ -17,7 +17,6 @@ import java.util.Set;
  * @since 1/7/2022
  */
 @Data
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class StudentDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
@@ -33,4 +32,13 @@ public class StudentDTO {
     private Set<CourseDTO> enrolledCourses;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private LocalDateTime createdAt;
+
+    public StudentDTO() {
+    }
+
+    public StudentDTO(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 }

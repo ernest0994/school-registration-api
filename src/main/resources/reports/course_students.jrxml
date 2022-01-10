@@ -8,13 +8,13 @@
     <parameter name="title" class="java.lang.String"/>
     <parameter name="mnemonic" class="java.lang.String"/>
     <queryString language="SQL">
-        <![CDATA[SELECT C.MNEMONIC, C.DESCRIPTION, CONCAT(S.FIRST_NAME, ' ', S.LAST_NAME) STUDENT_NAME, S.EMAIL FROM STUDENT S INNER JOIN STUDENT_COURSE SC ON S.ID = SC.STUDENT_ID INNER JOIN COURSE C ON SC.COURSE_ID = C.ID WHERE C.MNEMONIC = $P{mnemonic}]]>
+        <![CDATA[SELECT C.mnemonic, C.description, CONCAT(S.first_name, ' ', S.last_name) student_name, S.email FROM student S INNER JOIN student_course SC ON S.id = SC.student_id INNER JOIN course C ON SC.course_id = C.id WHERE C.mnemonic = $P{mnemonic}]]>
     </queryString>
 
-    <field name="MNEMONIC" class="java.lang.String"/>
-    <field name="DESCRIPTION" class="java.lang.String"/>
-    <field name="STUDENT_NAME" class="java.lang.String"/>
-    <field name="EMAIL" class="java.lang.String"/>
+    <field name="mnemonic" class="java.lang.String"/>
+    <field name="description" class="java.lang.String"/>
+    <field name="student_name" class="java.lang.String"/>
+    <field name="email" class="java.lang.String"/>
 
     <title>
         <band height="20" splitType="Stretch">
@@ -32,25 +32,25 @@
                 <reportElement x="0" y="0" width="100" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{MNEMONIC}]]></textFieldExpression>
+                    <![CDATA[$F{mnemonic}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="50" y="0" width="150" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+                    <![CDATA[$F{description}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="150" y="0" width="100" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{STUDENT_NAME}]]></textFieldExpression>
+                    <![CDATA[$F{student_name}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="280" y="0" width="150" height="20"/>
                 <textElement/>
                 <textFieldExpression class="java.lang.String">
-                    <![CDATA[$F{EMAIL}]]></textFieldExpression>
+                    <![CDATA[$F{email}]]></textFieldExpression>
             </textField>
         </band>
     </detail>
